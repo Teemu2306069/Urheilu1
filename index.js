@@ -18,17 +18,58 @@ class Urheilija extends Henkilo {
     laji,
     saavutukset
   ) {
-    super(etunimet);
+    //Perityt
+    super(etunimet, sukunimet, kutsumanimi, syntymävuosi);
+    //Luokan omat
+    this._linkkiKuvaan = linkkiKuvaan;
+    this._omapaino = omapaino;
+    this._laji = laji;
+    this._saavutukset = saavutukset;
+  }
 
-    this.linkkiKuvaan = linkkiKuvaan;
-    this.omapaino = omapaino;
-    this.laji = laji;
-    this.saavutukset = saavutukset;
+  //Get ja set
+  get linkkiKuvaan() {
+    return this._linkkiKuvaan;
+  }
+  set linkkiKuvaan(uusiLinkkiKuvaan) {
+    this._linkkiKuvaan = uusiLinkkiKuvaan;
+  }
+
+  get omapaino() {
+    return this._omapaino;
+  }
+  set omapaino(uusiPaino) {
+    if (uusiPaino > 0) {
+      this._omapaino = uusiPaino;
+    } else {
+      console.log("Liian kevyt meininki");
+    }
+  }
+
+  get laji() {
+    return this._laji;
+  }
+  set laji(uusiLaji) {
+    this._laji = uusiLaji;
+  }
+
+  get saavutukset() {
+    return this._saavutukset;
+  }
+  set saavutukset(uusiSaavutukset) {
+    this._saavutukset = uusiSaavutukset;
   }
 }
 
-console.log("something");
+const urheilija1 = new Urheilija(
+  "Matti",
+  "Esimerkki",
+  "Masa",
+  1990,
+  "https://example.com/image.jpg",
+  75,
+  "Juoksu",
+  ["Olympiakulta", "MM-hopea"]
+);
 
-joku = new Urheilija();
-
-console.log(joku);
+console.log(urheilija1);
